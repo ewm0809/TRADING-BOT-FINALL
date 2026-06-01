@@ -314,3 +314,23 @@ flex: 1; }
   color: white;
   /* TODO (자유 디자인) */
 }
+@media (max-width: 768px) {
+  .page {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "hd"
+      "nv"
+      "mn"
+      "as"
+      "ft";
+  }
+
+  .aside {
+    position: static;
+    width: 100%;
+  }
+
+  .main h2 {
+    font-size: 1.4rem;
+  }
+}
