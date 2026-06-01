@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>TRADING BOT</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <div class="page">
+
+    <header class="header">
+      <img src="image/스크린샷_31-5-2026_192246_search.naver.com.jpeg" alt="트레이딩 봇" class="profile-img">
+      <h1 class="logo">주식 트레이딩 봇</h1>
+      <p class="tagline">주식</p>
+    </header>
+
+    <nav class="nav">
+      <span class="nav-label">CONTACT</span>
+      <a href="https://github.com/ewm0809/-git-hub/blob/main/%23%20trading_bot.py" target="_blank">트레이딩 봇 github</a>
+      <a href="mailto:bin100628@naver.com">이메일</a>
+      <a href="trading.html">필독사항</a>
+    </nav>
+
+    <main class="main">
+      <h2>FEEL대로 주식을 하고 있었다면?</h2>
+      <p>공시가 뜨는 순간 자동 매수 → 목표 수익률 도달 시 자동 익절 · 손절까지</p>
+
+      <div class="intro-box">
+        <p class="intro-question">기업의 공시를 읽고 자동으로 투자해주는 트레이딩봇!</p>
+        <p class="intro-answer">사람은 욕심에 늦게 팔고, 공포에 일찍 팝니다.<br>
+        트레이딩 봇은 감정 없이 설정한 조건대로만 움직입니다.</p>
+      </div>
+
+      <p class="section-label">작동 원리</p>
+      <div class="stats">
+        <div class="stat-box">
+          <span class="num">공시 감지</span>
+          <span class="label">DART API로 60초마다 새 공시 수집</span>
+        </div>
+        <div class="arrow">→</div>
+        <div class="stat-box">
+          <span class="num">호재 / 악재 판단</span>
+          <span class="label">키워드 분석으로 BUY / SKIP 결정</span>
+        </div>
+        <div class="arrow">→</div>
+        <div class="stat-box">
+          <span class="num">자동 매매</span>
+          <span class="label">+2.8% 익절 · -2.0% 손절 자동 실행</span>
+        </div>
+      </div>
+
+      <h2>프로젝트 소개</h2>
+
+      <div class="gallery gallery-single">
+        <article class="card">
+          <h3>코딩으로 주식</h3>
+          <p>코드를 실행하면 실제로 주식 자동 매수 가능</p>
+          <div class="card-img-row">
+            <div>
+              <img src="image/스크린샷 2026-05-31 191634.png" alt="cmd화면" class="card-img">
+              <p class="img-caption">① 봇 실행</p>
+            </div>
+            <div>
+              <img src="image/spir.jpg" alt="실제 주식 구매 화면" class="card-img">
+              <p class="img-caption">② 한국투자증권 앱에서 자동 체결</p>
+            </div>
+          </div>
+          <ul>
+            <li>사람이 차트를 볼 필요 없이 봇이 24시간 공시를 감시</li>
+            <li>호재 공시가 뜨는 순간 자동으로 매수</li>
+            <li>목표 수익률 도달 시 자동 익절, 손실 한도 초과 시 자동 손절</li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <h3>수익률 & 모의투자대회 순위</h3>
+          <p>기간 5월 6일 ~ 5월 29일 (06/01 체결기준)</p>
+          <img src="image/수익.png" alt="수익" class="card-img">
+          <ul>
+            <li>개발기간: 일주일</li>
+            <li>AI 도구: claude</li>
+            <li>나의 순위: 2,901위 / 13,416명 참가</li>
+            <li>나의 수익: +424원 / 평균 수익률 5.44%</li>
+            <li>총평가금액: 10,000,424원</li>
+            <li>매매횟수: 23회 / 회전율 14.10%</li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <h3>봇이 읽는 공시 기준</h3>
+          <p>DART API로 60초마다 새 공시를 감지하고 키워드로 매수 여부를 판단해요</p>
+          <ul>
+            <li>공시 출처: 금융감독원 DART API</li>
+            <li>매수 신호 — 공급계약 · 구매계약 · 수주 · MOU · 납품계약 · 단독계약 · 전략적 제휴 · 계약 체결</li>
+            <li>매수 제외 — 계약해지 · 유상증자 · 전환사채 · 횡령 · 상장폐지 · 거래정지</li>
+            <li>사전 필터 — 1,000원 미만 주가 제외 · 거래량 10만 이하 제외 · 25만원 초과 제외</li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <h3>Bugs</h3>
+          <p>돌리면서 생긴 버그들</p>
+          <ul>
+            <li>중복 매수 버그 → seen_filings Set으로 해결</li>
+            <li>API 호출 초과 → 체크 주기 조정</li>
+            <li>손절 지연 → 체크 주기 단축</li>
+            <li>모의투자 API 제한으로 정확한 익절/손절 어려움</li>
+            <li>다음 목표: 웹소켓 방식 + 미국주식 실전 전환</li>
+          </ul>
+        </article>
+      </div>
+
+    </main>
+
+    <aside class="aside">
+      <img src="image/수익률.png" alt="덱스" class="aside-img">
+      <h2>의뢰 문의</h2>
+      <a href="https://github.com/ewm0809/-git-hub/blob/main/%23%20trading_bot.py" target="_blank" class="aside-btn">
+        모의투자 파이썬 코드.GitHub
+      </a>
+      <a href="trading.html" class="aside-btn">
+        주의사항 & 개발 비용
+      </a>
+      <a href="mailto:bin100628@naver.com" class="aside-btn">
+        나만의 트레이딩 의뢰하기.MAIL
+      </a>
+    </aside>
+
+    <footer class="footer">
+      © 2026 Trading Portfolio · Made with 박수빈
+    </footer>
+
+  </div>
+
+</body>
+</html>
