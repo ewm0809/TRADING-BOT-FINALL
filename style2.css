@@ -248,3 +248,16 @@ flex: 1; }
   color: white;
   
 }
+@media (max-width: 600px) {
+  .gallery {
+    grid-template-columns: 1fr;
+  }
+
+  .card {
+    text-align: center;
+  }
+
+  .card ul, .card ol {
+    text-align: left;
+  }
+}
