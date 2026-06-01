@@ -11,32 +11,7 @@ body {
 
 a { color: inherit; text-decoration: none; }
 
-
-@media (max-width: 768px) {
-  .header {
-    flex-wrap: nowrap;
-    gap: 8px;
-    padding: 12px;
-  }
-
-  .logo {
-    font-size: 1rem;
-    white-space: nowrap;
-  }
-
-  .profile-img {
-    width: 60px;
-    height: 60px;
-  }
-
-  .tagline {
-    font-size: 0.7rem;
-    white-space: nowrap;
-  }
-}
-   
 .page {
- 
   display: grid;
   grid-template-columns: 1fr 250px;
   grid-template-rows: auto auto 1fr auto;
@@ -50,32 +25,42 @@ a { color: inherit; text-decoration: none; }
   overflow: visible;
 }
 
-
 .header {
   grid-area: hd;
   z-index: 10;
   background-color: #7cb2e2;
-  color: #EDEADE;
   padding: 20px;
   text-transform: uppercase;
-   display: flex;
-  flex-direction: row;       
+  display: flex;
+  flex-direction: row;
   align-items: center;
   justify-content: space-between;
   gap: 16px;
-  color:#000000
- 
+  color: #000000;
 }
+
 .profile-img {
   width: 100px;
   height: 100px;
-   margin-left: 30px;
- 
+  margin-left: 30px;
 }
 
-
 /* ─── nav ─── */
+.nav {
+  grid-area: nv;
+  display: flex;
+  gap: 24px;
+  padding: 12px 20px;
+  background: #2b95ff;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
 .nav a {
+  color: white;
+  text-align: center;
+  flex: 1;
   text-decoration: underline;
 }
 
@@ -87,48 +72,34 @@ a { color: inherit; text-decoration: none; }
   font-weight: bold;
   text-decoration: none !important;
 }
-.nav {
-    grid-area: nv;
-  display: flex;
-  gap: 24px;
-  padding: 12px 20px;
-  background: #2b95ff;
-  position: sticky;
-  top: 0;
-  z-index: 100;
-  
-
-}
-.nav a { color: white;
-text-align: center;
-flex: 1; }
 
 .nav-label {
   color: #aaa;
   font-size: 0.75rem;
   letter-spacing: 2px;
-  margin-right: auto; 
+  margin-right: auto;
 }
-
 
 /* ─── main ─── */
 .main {
-    grid-area: mn;
+  grid-area: mn;
   padding: 24px;
-  text-align: center; 
- 
+  text-align: center;
 }
+
 .main h2 {
   font-size: 2rem;
   letter-spacing: 2px;
   text-align: center;
   margin-bottom: 8px;
 }
+
 .main > p {
   text-align: center;
   color: #666;
   margin-bottom: 32px;
 }
+
 .intro-box {
   background: #fff3cd;
   border-left: 4px solid #f0a500;
@@ -159,17 +130,8 @@ flex: 1; }
   text-transform: uppercase;
   margin-bottom: 12px !important;
   font-weight: bold;
-  font-size: 20px;
 }
 
-
-/* ============================================================
-   [요구사항 #1·#2·#3]  W9 Grid 기초 종합
-   ─ #1: display: grid + grid-template-columns에 fr 단위
-   ─ #2: gap (16px 이상)
-   ─ #3: justify-content / align-items 등 정렬 속성
-        (.stats 자체에 적용해도 OK, .stat-box 자식에 flex로 적용해도 OK)
-   ============================================================ */
 .stats {
   display: grid;
   grid-template-columns: 1fr auto 1fr auto 1fr;
@@ -177,15 +139,7 @@ flex: 1; }
   gap: 8px;
   margin-bottom: 32px;
 }
-@media (max-width: 600px) {
-  .stats {
-    grid-template-columns: 1fr;
-  }
-  
-  .arrow {
-    transform: rotate(90deg);
-  }
-}
+
 .stat-box {
   display: flex;
   flex-direction: column;
@@ -204,7 +158,7 @@ flex: 1; }
 }
 
 .stat-box .label {
-  font-size: 20px;
+  font-size: 12px;
   color: #e2e8f0;
   line-height: 1.5;
 }
@@ -216,24 +170,19 @@ flex: 1; }
   font-weight: bold;
 }
 
-
-/* ============================================================
-   [요구사항 #5]  카드 갤러리 — auto-fit + minmax
-   ─ 카드 6개 이상이 화면 너비에 따라 자동으로 열 수 변경
-   ─ 한 카드의 최소 너비는 220px 권장
-   ============================================================ */
 .gallery {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 16px;
-  
 }
+
 .gallery-single {
   grid-template-columns: 1fr !important;
   max-width: 800px;
   margin: 0 auto;
   width: 100%;
 }
+
 .card-img {
   width: 100%;
   border-radius: 6px;
@@ -247,6 +196,7 @@ flex: 1; }
   text-align: center;
   margin-bottom: 12px;
 }
+
 .card-img-row {
   display: flex;
   gap: 8px;
@@ -256,12 +206,13 @@ flex: 1; }
 .card-img-row > div {
   flex: 1;
 }
+
 .card {
   background: #82c0df;
   padding: 20px;
   border-radius: 8px;
-  color:#000000;
-  text-align: left;  /* 리스트 있으니까 left가 나음 */
+  color: #000000;
+  text-align: left;
 }
 
 .card h3 {
@@ -283,6 +234,7 @@ flex: 1; }
   font-size: 0.9rem;
   line-height: 1.8;
 }
+
 .card a {
   color: #863005;
   text-decoration: underline;
@@ -292,21 +244,21 @@ flex: 1; }
   opacity: 0.7;
 }
 
-
 /* ─── aside ─── */
 .aside {
-    grid-area: as;
+  grid-area: as;
   padding: 24px;
-  background: #fffac5; 
+  background: #fffac5;
   color: #000000;
   display: flex;
   flex-direction: column;
   gap: 12px;
   position: sticky;
-  top: 45px;    
+  top: 45px;
   height: fit-content;
-   align-self: start;
+  align-self: start;
 }
+
 .aside-img {
   width: 100%;
   border-radius: 12px;
@@ -325,7 +277,6 @@ flex: 1; }
   line-height: 1.6;
 }
 
-
 .aside-btn {
   display: block;
   background: #2b95ff;
@@ -342,18 +293,31 @@ flex: 1; }
   opacity: 0.8;
 }
 
-
 /* ─── footer ─── */
 .footer {
-    grid-area: ft;
+  grid-area: ft;
   text-align: center;
   padding: 20px;
   background: #2b95ff;
   color: white;
-  /* TODO (자유 디자인) */
 }
 
 @media (max-width: 768px) {
+  .page {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "hd"
+      "nv"
+      "mn"
+      "as"
+      "ft";
+  }
+
+  .aside {
+    position: static;
+    width: 100%;
+  }
+
   .header {
     flex-wrap: nowrap;
     gap: 8px;
@@ -386,24 +350,20 @@ flex: 1; }
 
   .nav a {
     font-size: 0.8rem;
+    flex: unset;
   }
 
   .nav-label {
     display: none;
   }
+}
 
-  .page {
+@media (max-width: 600px) {
+  .stats {
     grid-template-columns: 1fr;
-    grid-template-areas:
-      "hd"
-      "nv"
-      "mn"
-      "as"
-      "ft";
   }
 
-  .aside {
-    position: static;
-    width: 100%;
+  .arrow {
+    transform: rotate(90deg);
   }
 }
